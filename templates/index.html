@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+  <html lang="ja">
+ 
+
+<head>
+     
+    <meta charset="utf-8">
+     
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Flask掲示板</title>
+       
+     
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+       
+     
+    <!-- <style>body {padding: 10px;}</style> -->
+      </head>
+ 
+
+<body>
+       
+      <h1>掲示板へようこそ！</h1>
+       
+      <form action="/result" method="post">
+          <input type="hidden" name="thread" value="hogehoge">
+          <label for="article">投稿</label>
+         
+        <!-- <input type="text" name="article"> -->
+          <textarea name="article" rows="6" cols="100"></textarea>
+          <p></p>
+          <label for="name">名前</label>
+          <input type="text" name="name">
+          <button type="submit">送信する</button>
+          </form>
+       
+      <h2>投稿一覧</h2>
+       
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>日付</th>
+                  <th>名前</th>
+                  <th>投稿</th>
+                  </tr>
+              </thead>
+          <tbody>
+               
+              <tr>
+                  <th scope="row">2019-04-16 05:11:24.801604</th>
+                  <td>hoge</td>
+                  <td>test</td>
+                  </tr>
+               
+              </tbody>
+          </table>
+      {% block body %}
+      <form method="post" action="">
+          <table border="1">
+              <thead>
+                  <tr>
+                      <th>message</th>
+                      <th>created_at</th>
+                      <th>updated_at</th>
+                      </tr>
+                  </thead>
+              <tbody>
+                  {% for th in lines %}
+                  <tr>
+                      <td>{{ th.pub_date }}</td>
+                      <td>{{ th.name }}</td>
+                      <td>{{ th.article }}</td>
+                      </tr>
+                   
+                  {% endfor %}
+                  </tbody>
+              </table>
+          </form>
+      {% endblock %}
+       
+      <form action="/" method="get">
+          <button type="submit">戻る</button>
+          </form>
+       
+     
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+     
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+      </body>
+ 
+
+</html>
