@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+  <html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ひとこと掲示板</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+
+<body>
+      <h1>掲示板へようこそ！</h1>
+      <form action="/result" method="post">
+          <input type="hidden" name="comment_box">
+          <label for="comment_">投稿</label>
+          <textarea name="comment_data" rows="6" cols="100"></textarea>
+          <p></p>
+          <label for="name">名前</label>
+          <input type="text" name="name">
+          <button type="submit">送信する</button>
+          </form>
+      <h2>投稿一覧</h2>
+      {% block body %}
+      <form method="post" action="">
+        　<table class="table">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>日付</th>
+                      <th>名前</th>
+                      <th>投稿内容</th>
+                      </tr>
+                  </thead>
+              <tbody>
+                  {% for th in lines %}
+                  <tr>
+                      <td>{{ th.pub_date }}</td>
+                      <td>{{ th.name }}</td>
+                      <td>{{ th.comment }}</td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+          </form>
+      {% endblock %}
+     <p></p>
+</body> 
+
+</html>
