@@ -4,7 +4,7 @@
 Windows
 Python(Flask)
 SQLALCHEMY
-<br>
+<p><p>
 2019/10/29<p>
 コードを改修
 
